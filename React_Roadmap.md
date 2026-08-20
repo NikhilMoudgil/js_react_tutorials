@@ -1,0 +1,34 @@
+## Why to Learn react->
+* hype, job market , trend , build ui
+* Makes easy to manage adn build complex frontend
+
+## when should learn JS 
+* after mastering JS
+## Why React Created 
+* To solve phantom message problem 
+
+State managed by JS -> State - Js &
+UI Managed by dom  -> Ui-> dom
+
+there was no consistency in  ui 
+
+## React Learning Process 
+1. Go in depth which understanding every topic 
+2. Via projects onw topic at a time 
+
+## React Is A library 
+
+## Topics To learn 
+-> Core of react -> (State or UI manipulation ,jsx )
+-> component reusabilty
+-> Reusing of component (props)
+-> How to Propogate change (hooks)
+
+##addtional Addon TO react 
+-> Router as react don't have routers
+-> State Management -> Redux , redux toolkit , zustand ,context api 
+-> Class based Component 
+-> BAAS(backend as a service ) apps
+
+## After React->
+We should learn Next.Js , setsby ,remix
