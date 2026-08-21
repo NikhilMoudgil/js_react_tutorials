@@ -31,4 +31,16 @@ there was no consistency in  ui
 -> BAAS(backend as a service ) apps
 
 ## After React->
-We should learn Next.Js , setsby ,remix
+We should learn Next.Js , setsby ,remix 
+
+## React Library 
+It contains attachment like React -dom and React-native
+
+npm- node package manager -> used as downloaded in system
+npx - nodepacket executer -> used directly without installing 
+
+package.json -> It is the entry point  
+## create-react-app
+it is a utility which is used to add react in project and it is  a bulky utility and  install multiple heavy node modules and used less now a days 
+
+## 
