@@ -61,4 +61,16 @@ function customrender(reactElement,container){
     domElement.setAttribute('href',reactElement.props.href)
     domElement.setAttribute('target',reactElement.props.target)
     container.appendChild(domElement)
-} // it is basic
+} // it is basic and given is more better approach
+function customrender(reactElement,container){
+    const domElement = document.createElement(reactElement.type)
+   domElement.innerHTML = reactElement.Children
+    for (const prop in reactElement.props) {
+        if(prop ==='Children')continue;
+        domElement.setAttribute(prop ,reactElement.props[prop])
+        
+    }
+    container.appendChild(domElement)
+}
+
+## Every react use a bundeler -> it do behind the scene works like syntax correcter by doing parsing  
