@@ -43,4 +43,11 @@ package.json -> It is the entry point
 ## create-react-app
 it is a utility which is used to add react in project and it is  a bulky utility and  install multiple heavy node modules and used less now a days 
 
-## 
+## with react we get programming capabilties 
+react-scripts in package.json  and behind injects the js in html in basic react
+## we we meant to render a component we need to make the name uppercase  whether with vite or create react and name should also from capital and should give filename with .jsx
+
+** In a function we can return only one tag so as to solve this we use 
+div tag or <>.....</>empty tag 
+
+**
