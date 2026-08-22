@@ -50,4 +50,15 @@ react-scripts in package.json  and behind injects the js in html in basic react
 ** In a function we can return only one tag so as to solve this we use 
 div tag or <>.....</>empty tag 
 
-**
+## React app is a single page applications as in this we use only one html page and inject other components to it just  to let user  feel they are on different pages
+
+## If we want to use react in browser then we use react-dom and  for mobile app we use react-native
+
+## Method to get a render to work ->
+function customrender(reactElement,container){
+    const domElement = document.createElement(reactElement.type)
+    domElement.innerHTML = reactElement.Children
+    domElement.setAttribute('href',reactElement.props.href)
+    domElement.setAttribute('target',reactElement.props.target)
+    container.appendChild(domElement)
+} // it is basic
