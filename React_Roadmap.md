@@ -73,4 +73,35 @@ function customrender(reactElement,container){
     container.appendChild(domElement)
 }
 
-## Every react use a bundeler -> it do behind the scene works like syntax correcter by doing parsing  
+## Every react use a bundeler -> it do behind the scene works like syntax correcter by doing parsing  or converting to object
+## if we want to execute the the method directly we need particular syntax expected by bundeler 
+*In our  example we tried to execute the custom react object but it will not execute as it don't follow the expected syntax 
+-> Custom react object without expected syntax
+const ReactElement = {
+  type: "a",
+  props: {
+    href: 'https://google.com',
+    target: '_blank'
+  },
+  Children: 'Click me to Visit google'
+}
+->By syntax 
+const anotherElement= (
+  <a href='https://google.com' target='_blank'>Visit Google</a>
+)
+-> proper syntax  
+for proper synatx we use react.createElement as given
+
+const ReactElement= React.createElement(
+  'a',
+  {href:'https://google.com',target:'_blank'},
+  'Click me to visit Google.com'
+)
+
+## In jsx the html is mixed with js
+
+## To add variable with string in html
+eg-> Welcome to the react hub {Username }
+
+but in html we can only add the evaluated expression and can not do javascript expression evaluation within the html
+
