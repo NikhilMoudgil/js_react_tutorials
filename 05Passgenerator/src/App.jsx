@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import './App.css'
 
 function App() {
@@ -7,28 +7,42 @@ function App() {
   const [charAllodwed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
 
+  // use userefhook-> when we need reference of an object we use refhook
+  const passRef = useRef(null)
+  // useCallback hook-> it is a hook that lets you cache a function definition between re-renders.
+
+  // const cachefn= usecallback(fn,dependecies)
   const passwordGenerator = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"; // Fixed typo in alphabet
-    
+
     if (numberAllowed) str += "0123456789";
     if (charAllodwed) str += "!@#$%^&*_+-=[]{}~`";
-    
+
     for (let i = 1; i <= length; i++) {
       // FIX 2: Removed "+ 1". Array indices start at 0. Adding 1 skips 'A' and causes out-of-bounds undefined characters.
-      let char = Math.floor(Math.random() * str.length); 
-      
+      let char = Math.floor(Math.random() * str.length);
+
       // FIX 1: Use the local variable 'pass', not the constant state variable 'password'
-      pass += str.charAt(char); 
+      pass += str.charAt(char);
     }
-    
+
     // Set the state using the local 'pass' variable
     setPassword(pass);
-  }, [length, numberAllowed, charAllodwed]) 
+  }, [length, numberAllowed, charAllodwed])
 
-  useEffect(()=> {
+  const copypassToClipboard = useCallback(() => {
+    passRef.current?.select();
+    passRef.current?.setSelectionRange(0,99)
+    window.navigator.clipboard.writeText(password)
+  }, [password])
+  //useEffect hook-> it lets you syncronize a component with external system
+
+  // here used for method password generator
+  useEffect(() => {
     passwordGenerator()
   }, [length, numberAllowed, charAllodwed, passwordGenerator])
+
 
   return (
     <>
@@ -41,8 +55,11 @@ function App() {
             className='outline-none w-full py-1 px-3'
             placeholder='Password'
             readOnly
+            ref={passRef}
           />
-          <button className='outline-none bg-blue-400 text-amber-50 px-3 py-0.5 shrink-0 rounded-2xl'>Copy</button>
+          <button
+            onClick={copypassToClipboard}
+            className='outline-none bg-blue-400 text-amber-50 px-3 py-0.5 shrink-0 rounded-2xl'>Copy</button>
         </div>
         <div className='flex text-sm gap-x-2'>
           <div className='flex items-center gap-x-1'>
