@@ -1,19 +1,32 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromChildren, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Home from './components/home/home.jsx'
 import Layout from './layout.jsx'
 import About from './components/About/About.jsx'
 import Contact from './components/Contact/contact.jsx'
+import User from './components/User/User.jsx'
+import Github from './components/Github/Github.jsx'
+//import Github, { githubInfoLoader } from './components/Github/Github.jsx'
 
 const router = createBrowserRouter([
+    /*createRoutesFromElements(
+   <Route path='/'element={<Layout/>}>
+      <Route path='/about'element={<About/>}/>
+      <Route path='/contact'element={<Contact/>}/>
+      <Route path='/github'element={<Github/>}/>
+      <Route path='user/:userid'element={<User/>}/>
+    </Route>
+   )*/
   {
     path:'/',
     element:<Layout/>,
     children:[
       {path:"",element:<Home/>},
-      {path:"about",element:<About/>},
+      {path:"about",element:<About/>},  
+      {path:"user/:userid",element:<User/>},
+      {path:"github",element:<Github/>},
       {path:"contact",element:<Contact/>}
     ]
   }
